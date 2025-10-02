@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Library Page -->
+  <header>
+    <h1>My Library</h1>
+  </header>
+  
+  <div class="container">
+    <div class="library-header">
+      <h2>My Bookshelf</h2>
+      <div class="view-toggle">
+        <button class="view-btn active" onclick="showShelfView()">Bookshelf</button>
+        <button class="view-btn" onclick="showListView()">List View</button>
+      </div>
+    </div>
+
+    <!-- Bookshelf View -->
+    <div id="shelfView">
+      <p style="color: #f5e6d3; margin-bottom: 15px; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px;">
+        📖 White/dashed books are unread, colored books are completed! Click any book to toggle read status.
+      </p>
+      <div class="bookshelf" id="bookshelf">
+        <div class="empty-shelf">
+          Your bookshelf is empty. Click the + button to add your first book! 📚
+        </div>
+      </div>
+    </div>
+
+    <!-- List View -->
+    <div id="listView" class="hidden">
+      <div class="book-list" id="bookList"></div>
+    </div>
+  </div>
+
+  <!-- Add Book Button -->
+  <button class="add-book-btn" onclick="openAddBookModal()">+</button>
+
+  <!-- Add Book Modal -->
+  <div id="addBookModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Book</h2>
+        <button class="close-btn" onclick="closeAddBookModal()">Close</button>
+      </div>
+      <form id="addBookForm">
+        <div class="form-group">
+          <label>Book Title *</label>
+          <input type="text" id="bookTitle" placeholder="Enter book title" required>
+        </div>
+        <div class="form-group">
+          <label>Author *</label>
+          <input type="text" id="bookAuthor" placeholder="Enter author name" required>
+        </div>
+        <div class="form-group">
+          <label>ISBN (Optional)</label>
+          <input type="text" id="bookIsbn" placeholder="Enter ISBN or scan barcode">
+        </div>
+        <div class="form-group">
+          <label>Book Color (when read)</label>
+          <div class="color-picker" id="colorPicker"></div>
+        </div>
+        <button type="submit" class="btn">Add Book</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
